@@ -4,8 +4,6 @@
 \PassOptionsToPackage{AutoFakeBold}{xeCJK}
 \LoadClass{ctexbook}
 
-%%%%%%%% 宏包 %%%%%%%%
-
 % 页面尺寸
 \RequirePackage[a4paper,top=2.54cm,bottom=2.54cm,left=3.17cm,right=3.17cm,head=1.57cm,foot=1.5cm]{geometry}
 % 自定义页眉页脚
