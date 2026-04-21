@@ -1,0 +1,78 @@
+%%%%%%%% 参考文献 %%%%%%%%
+
+\newenvironment{reference}{
+    \ifthenelse{\isundefined{\xmu@print}}{}{\cleardoublepage}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \fancyhead[OC]{\rm\zihao{-5}参考文献}
+    \fancyhead[EC]{\rm\zihao{-5}\xmu@title}
+    \fancyfoot[C]{\rm\zihao{-5}\thepage}
+    \addcontentsline{toc}{chapter}{参考文献}
+    \addcontentsline{entoc}{chapter}{References}
+}{
+    \clearpage
+}
+
+\bibliographystyle{styles/gbt7714-2005}  % 参考文献格式 GB/T 7714-2005
+\renewcommand{\bibfont}{\rm\zihao{5}} % 参考文献字体
+\renewcommand{\bibsep}{0.5ex}         % 参考文献之间的间距
+
+%%%%%%%% 附录 %%%%%%%%
+
+\renewenvironment{appendix}{
+    \chapter*{附\quad\; 录}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \fancyhead[OC]{\rm\zihao{-5}附\quad\; 录}
+    \fancyhead[EC]{\rm\zihao{-5}\xmu@title}
+    \fancyfoot[C]{\rm\zihao{-5}\thepage}
+    \addcontentsline{toc}{chapter}{附录}
+    \addcontentsline{entoc}{chapter}{Appendix}
+
+    % 设置附录编号格式
+    \renewcommand{\thefigure}{A-\arabic{figure}}
+    \renewcommand{\thetable}{A-\arabic{table}}
+    \renewcommand{\theequation}{A-\arabic{equation}}
+    \renewcommand{\thesection}{A.\arabic{section}}
+    \renewcommand{\thesubsection}{A.\arabic{section}.\arabic{subsection}}
+    \renewcommand{\thesubsubsection}{A.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+
+    % 更新计数器
+    \addtocounter{chapter}{1}
+    \setcounter{figure}{0}
+    \setcounter{table}{0}
+    \setcounter{equation}{0}
+    \setcounter{section}{0}
+    \setcounter{subsection}{0}
+    \setcounter{subsubsection}{0}
+}{
+    \par
+    \clearpage
+}
+
+%%%%%%%% 致谢 %%%%%%%%
+
+\newenvironment{acknowledgement}{
+    \chapter*{致\quad\; 谢}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \ifthenelse{\isundefined{\xmu@entoc}}{
+        % 如果致谢在目录前，则只设置页脚
+        \renewcommand{\headrulewidth}{0pt}
+        \fancyfoot[C]{\rm\zihao{-5}\thepage}
+    }{
+        % 如果致谢在目录后，设置页眉、页脚，并添加索引到目录
+        \renewcommand{\headrulewidth}{0.4pt}
+        \fancyhead[OC]{\rm\zihao{-5}致\quad\; 谢}
+        \fancyhead[EC]{\rm\zihao{-5}\xmu@title}
+        \fancyfoot[C]{\rm\zihao{-5}\thepage}
+        \addcontentsline{toc}{chapter}{致谢}
+        \addcontentsline{entoc}{chapter}{Acknowledgements}
+    }
+    \vspace{1em}
+}{
+    \par
+    \clearpage
+}

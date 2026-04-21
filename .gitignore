@@ -1,0 +1,31 @@
+# LaTeX 编译产物
+build/
+
+# latexmk 辅助文件
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.synctex(busy)
+missfont.log
+
+# 根目录残留的临时文件（旧编译遗留）
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.out
+*.blg
+*.bbl
+*.bcf
+*.run.xml
+*.idx
+*.ind
+*.ilg
+*.glo
+*.acn
+*.acr
+*.alg
+
+# macOS
+.DS_Store

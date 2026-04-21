@@ -1,0 +1,67 @@
+% !TEX root = paper.tex
+% 编译方式：VSCode LaTeX Workshop 选 Recipe: latexmk (xelatex)
+% 或命令行：latexmk paper.tex
+% 编译产物统一输出到 build/，由 .latexmkrc 控制。
+\documentclass{styles/xmu}
+
+\begin{document}
+
+% ── 论文选项 ─────────────────────────────────────────────────
+% \print          % 取消注释：生成打印版（偶数页留白）
+% \arabicchapter  % 取消注释：章编号改用阿拉伯数字
+% \design         % 取消注释：封面改为"本科毕业设计"
+% \minor          % 取消注释：封面添加"（辅修）"
+
+% ── 基本信息 ─────────────────────────────────────────────────
+\title{论文标题（中文）}{Title of the Paper (English)}
+\author{姓名（中文）}
+\idn{学号}
+\college{学院名称}
+\subject{专业名称}
+\grade{年级}
+\teacher{指导教师姓名\; 职称}
+% \otherteacher{校外指导教师\; 职称}  % 有校外指导教师时取消注释
+
+% ── 完成时间 ──────────────────────────────────────────────────
+\pubdate{二〇二六年六月}
+
+% ── 关键词（中文；英文）──────────────────────────────────────
+\keywords{关键词一；关键词二；关键词三}
+         {Keyword1; Keyword2; Keyword3}
+
+% ── 生成封面与诚信承诺书 ──────────────────────────────────────
+\maketitle
+
+% ── 中文摘要 ──────────────────────────────────────────────────
+\begin{abstract}
+    \input{chapters/abstract}
+\end{abstract}
+
+% ── 英文摘要 ──────────────────────────────────────────────────
+\begin{enabstract}
+    \input{chapters/abstract_en}
+\end{enabstract}
+
+% ── 生成中英文目录 ────────────────────────────────────────────
+\tableofcontents
+
+% ════════════════════════════════════════════════════════════
+%  正文章节
+% ════════════════════════════════════════════════════════════
+\input{chapters/introduction}
+\input{chapters/method}
+\input{chapters/experiment}
+\input{chapters/conclusion}
+
+% ── 参考文献 ──────────────────────────────────────────────────
+\begin{reference}
+    \nocite{*}  % 正式写作时删去此行，改用正文中的 \cite{key}
+    \bibliography{references/refs}
+\end{reference}
+
+% ── 致谢 ──────────────────────────────────────────────────────
+\begin{acknowledgement}
+    \input{chapters/acknowledgement}
+\end{acknowledgement}
+
+\end{document}

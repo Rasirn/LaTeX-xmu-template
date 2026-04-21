@@ -1,0 +1,31 @@
+{
+  "latex-workshop.latex.outDir": "%DIR%",
+  "latex-workshop.latex.recipe.default": "latexmk (xelatex)",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (xelatex)",
+      "tools": ["latexmk-xelatex", "copy-pdf-to-root"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk-xelatex",
+      "command": "latexmk",
+      "args": [
+        "-xelatex",
+        "-outdir=build",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "copy-pdf-to-root",
+      "command": "cp",
+      "args": [
+        "%DIR%/build/%DOCFILE%.pdf",
+        "%DIR%/%DOCFILE%.pdf"
+      ]
+    }
+  ]
+}
